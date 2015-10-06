@@ -22,9 +22,37 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bar13->setValue(70);
     ui->bar14->setValue(75);
     ui->bar15->setValue(80);
+
+    // generate some data:
+    QVector<double> x(101), y(101); // initialize with entries 0..100
+    for (int i=0; i<101; ++i)
+    {
+      x[i] = i/50.0 - 1; // x goes from -1 to 1
+      y[i] = cos(x[i]); // let's plot a quadratic function
+    }
+
+    // Set up the graph
+    ui->plot->addGraph();
+    updatePlot(x,y);
 }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::updatePlot(QVector<double> x, QVector<double> y)
+{
+    // Sets the data for the plot
+    ui->plot->graph(0)->setData(x, y);
+
+    // Sets up the axis labels
+    ui->plot->xAxis->setLabel("x");
+    ui->plot->yAxis->setLabel("y");
+
+    // Sets the axes ranges
+    ui->plot->xAxis->setRange(-1, 1);
+    ui->plot->yAxis->setRange( 0, 1);
+    ui->plot->replot();
 }
