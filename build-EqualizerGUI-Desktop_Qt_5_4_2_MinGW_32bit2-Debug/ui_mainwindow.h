@@ -46,6 +46,7 @@ public:
     QProgressBar *bar14;
     QProgressBar *bar15;
     QCustomPlot *plot;
+    QCustomPlot *barplot;
     QMenuBar *menuBar;
     QMenu *menuEqualizer_GUI;
     QToolBar *mainToolBar;
@@ -55,7 +56,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(489, 543);
+        MainWindow->resize(980, 541);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         bar00 = new QProgressBar(centralWidget);
@@ -189,10 +190,13 @@ public:
         plot = new QCustomPlot(centralWidget);
         plot->setObjectName(QStringLiteral("plot"));
         plot->setGeometry(QRect(10, 270, 471, 211));
+        barplot = new QCustomPlot(centralWidget);
+        barplot->setObjectName(QStringLiteral("barplot"));
+        barplot->setGeometry(QRect(500, 270, 471, 211));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 489, 21));
+        menuBar->setGeometry(QRect(0, 0, 980, 21));
         menuEqualizer_GUI = new QMenu(menuBar);
         menuEqualizer_GUI->setObjectName(QStringLiteral("menuEqualizer_GUI"));
         MainWindow->setMenuBar(menuBar);

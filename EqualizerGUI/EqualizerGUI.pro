@@ -14,9 +14,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    soundprocessor.cpp \
+    soundacquirer.cpp
 
 HEADERS  += mainwindow.h \
-    qcustomplot.h
+    qcustomplot.h \
+    soundprocessor.h \
+    soundacquirer.h
 
 FORMS    += mainwindow.ui
